@@ -10,13 +10,17 @@ This library provides a simple code for nRf24l01.
 
 **How to connect it to arduino:**
 
-Connections:  ------------------------
-Gyro | Arduino
------|------
-GND  | GND
-VCC  | 5V
-SCL  | A5
-SDA  | A4
+The nRF24l01 needs **3.3V** but his pins can work with 5V (So you can connect it to arduino and ESP with no problem or external component like logic level shifter). It wrks with **SPI** (serial peripheral interface).
+Connections:
+
+Chip  | SCK  |  MISO  |  MOSI  |  CE  |  CSN  |  VCC  |  GND
+|  :---  | :---: | :---: | :---: | :---: | :---: | :---: | ---: |
+Arduino Uno  |  13 | 12 | 11 | 5 | 4 | 3V3 | GND
+Arduino Nano  |  13 | 12 | 11 | 5 | 4 | 3V3 | GND
+Arduino Mega  |  52 | 50 | 51 | 5 | 4 | 3V3 | GND
+ESP32  |  13 | 12 | 11 | 5 | 4 | 3V3 | GND
+
+You could choose your own CE and CSN pins by editing the CPP file (com.cpp), line 13.
 
 ![connections](https://howtomechatronics.com/wp-content/uploads/2017/02/NRF24L01-Pinout-NRF24L01-PA-LNA--768x512.png?ezimgfmt=ng:webp/ngcb2)
 
@@ -44,7 +48,16 @@ its the Y axis).
 The function returns an integer (int), so it cloude be used as variable
 
 
-**`getyewang()`**  //I know 'yaw' is written with an 'a' and not with 'e,' but I initially wrote it with 'e' and didn't want to change the entire code.
+## Code:
 
-This function read from the gyro the **yew angle** (most of the time its the Z axis).
-The function returns an integer (int), so it cloude be used as variable
+**`recive()`**
+
+This function recive from the radio.
+This function **must** be called before the `channelWrite()` function!
+
+
+**`channelRead(double num);`**
+- Num: the channel number that you want to read from.
+
+This function read form the data that recives from the radio (from the function `recive()`).
+Other than that, this function also smooth the data thats recives from the radio 
