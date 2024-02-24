@@ -47,7 +47,7 @@ double com::getch(int num){
   return control[num];
 }
 
-double com::channelRead(int num){
+double com::channelRead(double num){
   double tempch1 = getch(num);
   double tempch12 = getch(num); 
   while(tempch1 != tempch12 && !tempch1){ //hold untill we get two successive measurres, different from 0
