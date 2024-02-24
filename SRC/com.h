@@ -9,7 +9,7 @@ class com {
     void begin(int ReTr);
     void recive();
     double getch(int num);
-    double channelRead(int num);
+    double channelRead(double num);
     void channelWrite(int chNum, double val);
     void transmit();
     double calibrate(double val, double cal);
