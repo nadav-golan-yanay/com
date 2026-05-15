@@ -13,7 +13,7 @@ This library provides a simple code for nRf24l01.
 The nRF24l01 needs **3.3V** but his pins can work with 5V (So you can connect it to arduino and ESP with no problem or external component like logic level shifter). It wrks with **SPI** (serial peripheral interface).
 Connections:
 
-Chip  | SCK  |  MISO  |  MOSI  |  CE  |  CSN  |  VCC  |  GND
+Chip  | SCK  |  MISO  |  MOSI  |  CE  |  CNS  |  VCC  |  GND
 |  :---  | :---: | :---: | :---: | :---: | :---: | :---: | ---: |
 Arduino Uno  |  13 | 12 | 11 | 5 | 4 | 3V3 | GND
 Arduino Nano  |  13 | 12 | 11 | 5 | 4 | 3V3 | GND
